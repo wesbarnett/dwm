@@ -11,4 +11,4 @@ for line in amixer.split("\n"):
         if muted:
             print("Mute")
         else:
-            print("parts[-2][1:-2]")
+            print(parts[-2][1:-2])
