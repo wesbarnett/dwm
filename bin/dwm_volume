@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+import subprocess
+
+amixer = subprocess.check_output(["amixer", "get", "Master"]).decode()
+
+for line in amixer.split("\n"):
+    if line.startswith("  Front Left:"):
+        line = line.strip()
+        parts = line.split()
+        muted = parts[-1] == "[off]"
+        if muted:
+            print("Mute")
+        else:
+            print("parts[-2][1:-2]")
